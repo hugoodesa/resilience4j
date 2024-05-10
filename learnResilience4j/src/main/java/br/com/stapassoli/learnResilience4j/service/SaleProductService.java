@@ -27,7 +27,6 @@ public class SaleProductService {
         return repository.getProducts().get(id);
     }
 
-    @CircuitBreaker(name = "myCircuitBreaker", fallbackMethod = "")
     private ConsultDollarPrice getDollarPrice(Product product, boolean generateError) {
         BigDecimal valueToConvert = product.getPrice();
         String requestURL = String.format("http://localhost:8080/dollar?requiredValue=%s&isGenerateError=%b", valueToConvert.toString(),
