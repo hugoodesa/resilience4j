@@ -1,18 +1,20 @@
 pipeline {
 
-    agent any //maven , groovy , gradle , node etc..
+    //maven , groovy , gradle , npm etc..
+    agent { docker { image 'maven:3.9.6-eclipse-temurin-17-alpine' } }
 
     stages{
         
         stage("build"){
             steps{
                 echo 'builing the application'
+                sh 'mvn clean install -DskipTests'
             }
         }    
 
         stage("test") {
             steps{
-                echo 'testing the application'
+                echo 'mvn test'
             }
         }
         
