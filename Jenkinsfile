@@ -10,17 +10,17 @@ pipeline {
         stage("build"){
             steps{
                 echo 'builing the application'
-                sh 'cd /consultDollarPrice'
-                sh 'mvn clean install -DskipTests'
+                sh 'cd consultDollarPrice'
+                //sh 'mvn clean install -DskipTests'
             }
         }    
 
-        stage("test") {
+        /* stage("test") {
             steps{
                 sh 'cd /consultDollarPrice'
                 echo 'mvn test'
             }
-        }
+        } */
         
         stage("deploy") {
             steps{
