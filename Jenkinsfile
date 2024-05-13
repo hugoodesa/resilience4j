@@ -1,10 +1,11 @@
 pipeline {
 
    agent any
-    /* tools {
+
+     tools {
       maven 'maven_local'
       jdk 'java_local'
-    } */
+    }
     stages{
 
         stage("build"){
