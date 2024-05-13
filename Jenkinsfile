@@ -32,12 +32,20 @@
 }*/
 
 pipeline {
+    
     agent {
         docker {
             image 'maven:3.9.3-eclipse-temurin-17'
         }
     }
+
     stages {
+
+        stage('Initialize'){
+            def dockerHome = tool 'myDocker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
+
         stage('build') {
             steps {
                 echo 'test'
