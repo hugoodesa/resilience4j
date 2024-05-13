@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
 
    agent any
     tools {
@@ -11,16 +11,16 @@ pipeline {
             steps{
                 echo 'builing the application'
                 sh 'cd consultDollarPrice'
-                //sh 'mvn clean install -DskipTests'
+                sh 'mvn clean install -DskipTests'
             }
         }    
 
-        /* stage("test") {
+        stage("test") {
             steps{
                 sh 'cd /consultDollarPrice'
                 echo 'mvn test'
             }
-        } */
+        } 
         
         stage("deploy") {
             steps{
@@ -29,4 +29,19 @@ pipeline {
         }
     }
 
+}*/
+
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.9.3-eclipse-temurin-17'
+        }
+    }
+    stages {
+        stage('build') {
+            steps {
+                echo 'test'
+            }
+        }
+    }
 }
